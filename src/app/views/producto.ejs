@@ -1,0 +1,52 @@
+<% include header %>
+    <div class="row">
+        <div class="col-md-6 mt-6 text-center">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre Producto</th>
+                    <th>Valor Producto</th>
+                    
+                    <th>Acción</th>
+                </tr>
+                <% for (var i = 0; i < producto.length; i ++) { %>
+                    <tr>
+                        <td>
+                            <%= producto[i].id_producto %>
+                        </td>
+                        <td>
+                            <%= producto[i].nombreP %>
+                        </td>
+                        <td>
+                            <%= producto[i].valorP %>
+                        </td>
+                      
+                        <td>
+                            <a href="/producto/Eliminar/<%= producto[i].id_producto %>" class="btn btn-danger">Eliminar</a>
+
+                            <a href="/producto/updatePro/<%= producto[i].id_producto %>" class="btn btn-info">Actualizar</a>
+                            
+                          
+
+
+                        </td>
+                    </tr>
+
+                    <% } %>
+            </table>
+        </div>
+        <div class="col-md-6 mt-6 card">
+            <form class="card-body" action="/producto/add" method="post">
+                <h3 class="card-title">Agregar Producto</h3>
+                <div class="form-group">
+                    <input name="nombreP" type="text" class="form-control" placeholder="Nombre Producto">
+                </div>
+                <div class="form-group">
+                    <input name="valorP" type="text" class="form-control" placeholder="Valor Producto">
+                </div>
+                
+                <input type="submit" class="btn btn-primary" value="Guardar">
+            </form>
+        </div>
+    </div>
+    <% include footer %>
